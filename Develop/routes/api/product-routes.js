@@ -35,7 +35,7 @@ router.get('/', (req, res) => {
     })
     .catch(err => {
       console.log(err);
-      res.status(500).json({ message: "There has been an error" })
+      res.status(500).json({ message: "An error has occurred" })
     });
 });
 
@@ -74,7 +74,7 @@ router.get('/:id', (req, res) => {
     })
     .catch(err => {
     console.log(err);
-    res.status(500).json({ message: "There has been an error" })
+    res.status(500).json({ message: "An error has occurred" })
     });
 
 });
@@ -162,13 +162,13 @@ router.delete('/:id', (req, res) => {
   })
   .then(productData => {
     if (!productData) {
-      res.status(404).json({ message: "No product found with this id "});
+      res.status(404).json({ message: "No product found with the id provided"});
       return;
     }
-    res.json({ message: "The product has been deleted! "});
+    res.json({ message: "This product has been deleted! "});
   })
   .catch(err => {
-    res.status(500).json({ message: "There has been an error" })
+    res.status(500).json({ message: "An error has occurred" })
   })
 });
 

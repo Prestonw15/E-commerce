@@ -25,7 +25,7 @@ router.get('/', (req, res) => {
     res.json(tagData);
   })
   .catch(err => {
-    res.status(500).json({ message: "There has been an error "})
+    res.status(500).json({ message: "An error has occurred"})
   });
 
 });
@@ -49,26 +49,61 @@ router.get('/:id', (req, res) => {
   })
   .then(tagData => {
     if (!tagData) {
-      res.status(404).json({ message: "No tag with that id found" });
+      res.status(404).json({ message: "No such tag found with id provided" });
       return;
     }
     res.json(tagData);
   })
   .catch(err => {
-    res.status(500).json({ message: "There has been an error "})
+    res.status(500).json({ message: "An error has occurred"})
   });
 });
 
 router.post('/', (req, res) => {
   // create a new tag
+  Tag.create({
+    tag_name: req.body.tag_name
+  })
+  .then(tagData => res.json(tagData))
+  .catch(err => {
+    res.status(500).json({ message: "An error has occurred"});
+  });
 });
 
 router.put('/:id', (req, res) => {
   // update a tag's name by its `id` value
+  Tag.update({
+    tag_name: req.body.tag_name
+  },
+  {
+    where: {
+      id: req.params.id
+    }
+  }
+  )
+  .then(tagData => res.json({ message: "This tag has been updated!" }))
+  .catch(err => {
+    res.status(404).json({ message: "No such tag found with ID provided" });
+  });
 });
 
 router.delete('/:id', (req, res) => {
   // delete on tag by its `id` value
+  Tag.destroy({
+    where: {
+      id: req.params.id
+    }
+  })
+  .then(tagData => {
+    if (!tagData) {
+      res.status(404).json({ message: "No such tag found with id provided"});
+      return;
+    }
+    res.json({ message: "This tag has been deleted" });
+  })
+  .catch(err => {
+    res.status(500).json({ message: "An error has occurred"})
+  })
 });
 
 module.exports = router;

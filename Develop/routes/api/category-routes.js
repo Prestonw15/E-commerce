@@ -25,7 +25,7 @@ router.get('/', (req, res) => {
     res.json(categoryData);
   })
   .catch(err => {
-    res.status(500).json({ message: "There has been an error" })
+    res.status(500).json({ message: "An error has occurred" })
   });
 });
 
@@ -48,13 +48,13 @@ router.get('/:id', (req, res) => {
   })
   .then(categoryData => {
   if (!categoryData) {
-    res.status(404).json({ message: "No category found with this id" });
+    res.status(404).json({ message: "No category found with the id provided" });
     return;
   }
   res.json(categoryData);
   })
   .catch(err => {
-  res.status(500).json({ message: "There has been an error" })
+  res.status(500).json({ message: "An error has occurred" })
   });
 
 });
@@ -66,7 +66,7 @@ router.post('/', (req, res) => {
   })
   .then(categoryData => res.json(categoryData))
   .catch(err => {
-    res.status(500).json({ message: "There has been an error "});
+    res.status(500).json({ message: "An error has Occurred"});
   });
 });
 
@@ -77,7 +77,7 @@ router.put('/:id', (req, res) => {
   })
   .then(categoryData => res.json(categoryData))
   .catch(err => {
-    res.status(500).json({ message: "There has been an error "});
+    res.status(500).json({ message: "An error has occurred"});
   });
 });
 
@@ -90,13 +90,13 @@ router.delete('/:id', (req, res) => {
   })
   .then(categoryData => {
     if (!categoryData) {
-      res.status(404).json({ message: "No category found with this id "});
+      res.status(404).json({ message: "No category found with the id provided"});
       return;
     }
-    res.json({ message: "The category has been deleted! "});
+    res.json({ message: "This category has been deleted! "});
   })
   .catch(err => {
-    res.status(500).json({ message: "There has been an error" })
+    res.status(500).json({ message: "An error has occurred" })
     console.log(err)
   })
 });
