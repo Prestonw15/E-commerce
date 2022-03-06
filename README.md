@@ -10,8 +10,12 @@
  
  # Installation
 <ul>
-  <li><li>
-  <li></li>
-  <li></li>
-  <li></li>
+  <li>"dotenv"<li>
+  <li>"express"</li>
+  <li>"mysql2"</li>
+  <li>"sequelize"</li>
 </ul>
+
+# Author
+
+If you have any question contact me at: prestonwatson.15@gmail.com
