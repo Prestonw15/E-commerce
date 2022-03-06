@@ -10,7 +10,7 @@
  
  # Installation
 <ul>
-  <li>"dotenv"<li>
+  <li>"dotenv"</li>
   <li>"express"</li>
   <li>"mysql2"</li>
   <li>"sequelize"</li>
