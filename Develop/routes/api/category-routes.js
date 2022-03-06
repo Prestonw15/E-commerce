@@ -56,14 +56,29 @@ router.get('/:id', (req, res) => {
   .catch(err => {
   res.status(500).json({ message: "There has been an error" })
   });
+
 });
 
 router.post('/', (req, res) => {
   // create a new category
+  Category.create({
+    category_name: req.body.category_name
+  })
+  .then(categoryData => res.json(categoryData))
+  .catch(err => {
+    res.status(500).json({ message: "There has been an error "});
+  });
 });
 
 router.put('/:id', (req, res) => {
   // update a category by its `id` value
+  Category.create({
+    category_name: req.body.category_name
+  })
+  .then(categoryData => res.json(categoryData))
+  .catch(err => {
+    res.status(500).json({ message: "There has been an error "});
+  });
 });
 
 router.delete('/:id', (req, res) => {
